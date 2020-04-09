@@ -4,23 +4,24 @@ from selenium.webdriver.common.by import By
 class HomePage(BasePage):
 
 
-    alerts_xpath='//a[@href="/alerts"]'
-    tests_xpath='//a[@href="/tests"]'
-    variables_xpath = '//a[@href="/variables"]'
-    notify_xpath='//a[@href="/notify"]'
-    dashboard_xpath='//a[@href="/dashboard"]'
+    alerts_link='Alerts'
+    tests_link='Tests'
+    variables_link = 'Variables'
+    notify_link='Notifications'
+    dashboard_link='Dashboard'
 
     def click_dashboard(self):
-        self.click_element(By.XPATH,self.dashboard_xpath)
+        self.click_element(By.LINK_TEXT,self.dashboard_link)
 
     def click_tests(self):
-        self.click_element(By.XPATH,self.tests_xpath)
+        self.click_element(By.LINK_TEXT,self.tests_link)
 
     def click_variables(self):
-        self.click_element(By.XPATH,self.variables_xpath)
+        self.click_element(By.LINK_TEXT,self.variables_link)
 
     def click_notify(self):
-        self.click_element(By.XPATH,self.notify_xpath)
+        self.click_element(By.LINK_TEXT,self.notify_link)
 
     def click_alerts(self):
-        self.click_element(By.XPATH,self.alerts_xpath)
+        self.click_element(By.LINK_TEXT,self.alerts_link)
+
