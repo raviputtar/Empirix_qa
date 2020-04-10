@@ -15,4 +15,10 @@ class LoginPage(BasePage):
     def click_signin(self):
         self.click_element(By.NAME,self.signin_locator)
 
+    def do_login(self,username,pwd):
+        self.enter_username(username)
+        self.enter_pwd(pwd)
+        self.click_signin()
+
+
 

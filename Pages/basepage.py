@@ -1,7 +1,7 @@
 from selenium import webdriver
-#from selenium.webdriver.support.wait import WebDriverWait
-#from selenium.webdriver.support import expected_conditions as EC
-#from selenium.webdriver.
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import *
 
 class BasePage:
 
@@ -44,16 +44,18 @@ class BasePage:
     def title(self):
         return self.driver.title
 
-  #  def wait_for_enroll_button(self):
-       # try:
-        #    Mybuttonwait = WebDriverWait(self.driver, 10, poll_frequency=2,
-         #                                ignored_exceptions=[ElementNotVisibleException,
-          #                                                   ElementNotInteractableException,
-           #                                                  ElementClickInterceptedException,
-            #                                                 ElementNotSelectableException])
-          #  button_element = Mybuttonwait.until(EC.presence_of_element_located((By.XPATH, self.enroll_confirm_button_locator)))
-        #except:
-         #   print("exception found")
-       # else:
-        #    print("element found :", button_element)
+
+    def wait_and_return_element(self,locator_type,locator):
+
+        try:
+
+            wait = WebDriverWait(self.driver, 20, poll_frequency=2,
+                             ignored_exceptions=[ElementNotVisibleException, NoSuchElementException,
+                                                 ElementNotSelectableException, ElementClickInterceptedException])
+            element = wait.until(EC.presence_of_element_located((locator_type,locator)))
+            return element
+        except:
+            print("page not ready")
+            raise TimeoutException
+
 
