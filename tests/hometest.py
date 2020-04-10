@@ -1,4 +1,5 @@
 import unittest
+import HtmlTestRunner
 from Pages.loginpage import LoginPage
 from Pages.homepage import HomePage
 
@@ -21,8 +22,8 @@ class HomeTest(unittest.TestCase):
 
 
     def tearDown(self) -> None:
-        self.hp.driver.quit()
+        self.hp.driver.close()
 
 
 if __name__== "__main__":
-    unittest.main()
+    unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='../Reports'))

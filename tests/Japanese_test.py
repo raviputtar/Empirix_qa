@@ -1,4 +1,5 @@
 import unittest
+import HtmlTestRunner
 from Pages.loginpage import LoginPage
 from Pages.homepage import HomePage
 
@@ -25,8 +26,7 @@ class JapaneseTest(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls) -> None:
-        cls.lp.driver.quit()
+        cls.lp.driver.close()
 
-
-if __name__ == "__main__":
-    unittest.main()
+if __name__== "__main__":
+    unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='../Reports'))

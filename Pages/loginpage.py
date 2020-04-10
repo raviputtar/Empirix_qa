@@ -1,10 +1,12 @@
 from Pages.basepage import BasePage
 from selenium.webdriver.common.by import By
+from Pages.homepage import HomePage
 class LoginPage(BasePage):
     #locators
     username_locator="callback_0"
     pwd_locator="callback_1"
     signin_locator="callback_2"
+    hp=HomePage()
 
     def enter_username(self,username):
         self.element_sendkeys(username,By.NAME,self.username_locator)
@@ -19,6 +21,9 @@ class LoginPage(BasePage):
         self.enter_username(username)
         self.enter_pwd(pwd)
         self.click_signin()
+
+
+
 
 
 
